@@ -52,14 +52,13 @@ The CSS styling focuses on a modern, clean design with responsive layouts using 
 2. **Running the Application**
    **Start the development server**
 
-   ```bash
+    ```bash
    npm start
   This will start the application on http://localhost:3000.
 
   **Build for Production** 
   
-    ```bash 
-    npm run build
+      npm run build
   This will create a production-ready build of the application.
 
 ## Additional Notes
