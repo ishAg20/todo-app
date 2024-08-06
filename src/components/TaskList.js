@@ -68,7 +68,7 @@ const TaskList = () => {
           className="search-input"
         />
         <button className="add" onClick={() => setIsFormOpen(true)}>
-          +
+          Add New Task
         </button>
       </div>
       {isFormOpen && (
