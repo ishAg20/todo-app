@@ -56,13 +56,21 @@ The CSS styling focuses on a modern, clean design with responsive layouts using 
    npm start
   This will start the application on http://localhost:3000.
 
-  **Build for production**
-   ```bash
-   npm run build
-  This will create a production-ready build of the application in the build 
-  directory.
-
+  **Build for Production** 
   
+    ```bash 
+    npm run build
+  This will create a production-ready build of the application.
 
- 
+## Additional Notes
+
+* **Development Environment:** Use a code editor like Visual Studio Code for a better development experience.
+* **Browser Compatibility:** The application is designed to work on modern browsers. Ensure you are using an up-to-date browser for the best experience.
+
+## Conclusion
+
+The Task Manager Application provides a simple yet effective solution for managing tasks. With its clean design and user-friendly interface, it aims to enhance productivity and organization for its users.
+
+Feel free to contribute to the project by submitting issues and pull requests on GitHub. Happy coding!
+
  
