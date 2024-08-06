@@ -1,13 +1,194 @@
+/* Global Styles */
+html,
 body {
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #3a0ca3, #7209b7); /* purple gradient */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 0.2rem;
+  min-height: 100vh;
+}
+
+/* Form Styles */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #0b125e;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.task-form input,
+.task-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  resize: none;
+  background-color: #4974bd;
+  color: #ffffff;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.task-form button {
+  background-color: #4cc9f0; /* Light blue button */
+  color: #000; /* Black text */
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.task-form button:hover {
+  background-color: #4895ef; /* Darker blue on hover */
+  box-shadow: 0 0 10px rgba(72, 149, 239, 0.5);
+  transform: scale(1.05);
+}
+
+/* Task List Styles */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  overflow-y: auto;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.task-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 500px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.task-list-name,
+.search-input,
+button {
+  transition: transform 0.3s ease-in-out;
+}
+
+.task-list-name {
+  font-size: 2rem;
+  width: 10rem;
+}
+
+.search-input {
+  box-shadow: inset 0 0 10px rgba(72, 149, 239, 0.5); /* blue shadow */
+  width: 90%;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Task Item Styles */
+.task-item {
+  background-color: #2b2d42;
+  padding: 15px;
+  margin-bottom: 10px;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.task-item.completed {
+  text-decoration: line-through;
+  background-color: #1f1f1f; /* Darker background for completed tasks */
+}
+
+.task-item h3 {
+  margin: 0;
+  color: #fff; /* white text */
+}
+
+.task-item p {
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  color: #ffffff; /* light grey text */
+}
+
+.task-item button {
+  margin-left: 10px;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+.task-item button:first-of-type {
+  background-color: #4cc9f0; /* light blue button */
+  box-shadow: 0 0 10px rgba(72, 149, 239, 0.7);
+}
+
+.task-item button:first-of-type:hover {
+  background-color: #4895ef; /* darker blue on hover */
+  box-shadow: 0 0 15px rgba(72, 149, 239, 1);
+  transform: scale(1.05);
+}
+
+.task-item button:last-of-type {
+  background-color: #ef233c; /* red button */
+  box-shadow: 0 0 10px rgba(239, 35, 60, 0.7);
+}
+
+.task-item button:last-of-type:hover {
+  background-color: #d90429; /* darker red on hover */
+  box-shadow: 0 0 15px rgba(239, 35, 60, 1);
+  transform: scale(1.05);
+}
+
+/* Input and Button Styles */
+input,
+textarea,
+button {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input,
+textarea {
+  width: 90%;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #333; /* dark background for inputs */
+  color: #fff; /* white text */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* darker shadow */
+  transition: background-color 0.3s ease-in-out;
+}
+
+button {
+  background-color: #4cc9f0; /* light blue button */
+  color: #000; /* black text */
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #4895ef; /* darker blue on hover */
+  box-shadow: 0 0 10px rgba(72, 149, 239, 0.5);
+  transform: scale(1.05);
 }

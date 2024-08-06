@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "title": "Sample Task 1",
+    "description": "This is a sample task description.",
+    "completed": false,
+    "timestamp": "2024-08-04T12:34:56"
+  }
+]
