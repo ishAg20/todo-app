@@ -59,7 +59,7 @@ const TaskList = () => {
   return (
     <div className="task-list">
       <div className="task-list-header">
-        <div className="task-list-name">ToDo List</div>
+        <div className="task-list-name">Task Manager</div>
         <input
           type="text"
           placeholder="Search tasks"
@@ -67,7 +67,9 @@ const TaskList = () => {
           onChange={(e) => navigate(`?search=${e.target.value}`)}
           className="search-input"
         />
-        <button onClick={() => setIsFormOpen(true)}>Add Task</button>
+        <button className="add" onClick={() => setIsFormOpen(true)}>
+          +
+        </button>
       </div>
       {isFormOpen && (
         <TaskForm

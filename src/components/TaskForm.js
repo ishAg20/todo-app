@@ -43,10 +43,14 @@ const TaskForm = ({ onAddTask, onUpdateTask, editingTask, closeForm }) => {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       ></textarea>
-      <button type="submit">{editingTask ? "Update Task" : "Add Task"}</button>
-      <button type="button" onClick={closeForm}>
-        Cancel
-      </button>
+      <div className="buttons">
+        <button type="submit">
+          {editingTask ? "Update Task" : "Add Task"}
+        </button>
+        <button type="button" onClick={closeForm}>
+          Cancel
+        </button>
+      </div>
     </form>
   );
 };

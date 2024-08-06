@@ -5,12 +5,14 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden; /* Remove horizontal scrollbar */
 }
 
 body {
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background: linear-gradient(135deg, #3a0ca3, #7209b7); /* purple gradient */
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -28,8 +30,8 @@ body {
   padding: 20px;
   background-color: #0b125e;
   border-radius: 5px;
-  width: 100%;
-  max-width: 500px;
+  width: 87%; /* Original width */
+  max-width: 500px; /* Original max-width */
   margin: 20px auto;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
@@ -42,14 +44,20 @@ body {
   border: none;
   border-radius: 5px;
   resize: none;
-  background-color: #4974bd;
+  background-color: #0b357d;
   color: #ffffff;
   transition: background-color 0.3s ease-in-out;
 }
 
+.buttons {
+  display: flex;
+  gap: 2rem;
+}
+
 .task-form button {
-  background-color: #4cc9f0; /* Light blue button */
-  color: #000; /* Black text */
+  background-color: #0b357d;
+  color: #fff;
+  letter-spacing: 0.3rem;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
@@ -58,9 +66,15 @@ body {
 }
 
 .task-form button:hover {
-  background-color: #4895ef; /* Darker blue on hover */
+  background-color: #4895ef;
   box-shadow: 0 0 10px rgba(72, 149, 239, 0.5);
+  color: #000;
   transform: scale(1.05);
+}
+
+::placeholder {
+  color: rgb(184, 178, 178);
+  letter-spacing: 0.25rem;
 }
 
 /* Task List Styles */
@@ -68,8 +82,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 1200px;
+  width: 100%; /* Original width */
   padding: 20px;
   overflow-y: auto;
   transition: opacity 0.3s ease-in-out;
@@ -77,11 +90,12 @@ body {
 
 .task-list-header {
   display: flex;
+  gap: 1rem; /* Adjust gap for spacing */
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  width: 100%;
-  max-width: 500px;
+  width: 100%; /* Original width */
+  max-width: 500px; /* Original max-width */
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -91,14 +105,20 @@ button {
   transition: transform 0.3s ease-in-out;
 }
 
+.add {
+  font-size: 2rem;
+  border-radius: 50%; /* Make it completely rounded */
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
 .task-list-name {
   font-size: 2rem;
-  width: 10rem;
 }
 
 .search-input {
-  box-shadow: inset 0 0 10px rgba(72, 149, 239, 0.5); /* blue shadow */
-  width: 90%;
+  box-shadow: inset 0 0 10px rgba(72, 149, 239, 0.5);
+  width: 100%; /* Increase width */
   margin-bottom: 20px;
   transition: box-shadow 0.3s ease-in-out;
 }
@@ -108,26 +128,26 @@ button {
   background-color: #2b2d42;
   padding: 15px;
   margin-bottom: 10px;
-  width: 90%;
-  max-width: 800px;
+  width: 90%; /* Original width */
+  max-width: 800px; /* Original max-width */
   border-radius: 5px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .task-item.completed {
   text-decoration: line-through;
-  background-color: #1f1f1f; /* Darker background for completed tasks */
+  background-color: #1f1f1f;
 }
 
 .task-item h3 {
   margin: 0;
-  color: #fff; /* white text */
+  color: #fff;
 }
 
 .task-item p {
-  margin: 10px 0 0 0;
+  margin: 10px 0 15px 0;
   font-size: 14px;
-  color: #ffffff; /* light grey text */
+  color: #ffffff;
 }
 
 .task-item button {
@@ -136,25 +156,66 @@ button {
     transform 0.3s ease-in-out;
 }
 
-.task-item button:first-of-type {
-  background-color: #4cc9f0; /* light blue button */
+.expand {
+  background: linear-gradient(135deg, #3a0ca3, #7209b7); /* purple gradient */
   box-shadow: 0 0 10px rgba(72, 149, 239, 0.7);
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  color: #fff;
+  letter-spacing: 0.25rem;
 }
 
-.task-item button:first-of-type:hover {
-  background-color: #4895ef; /* darker blue on hover */
-  box-shadow: 0 0 15px rgba(72, 149, 239, 1);
+.expand:hover {
+  transform: scale(1.05);
+}
+
+.done {
+  background: linear-gradient(135deg, #0b4d1d, #68ef78);
+  box-shadow: 0 0 10px rgba(72, 149, 239, 0.7);
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  color: #fff;
+  letter-spacing: 0.25rem;
+}
+
+.done:hover {
   transform: scale(1.05);
 }
 
 .task-item button:last-of-type {
-  background-color: #ef233c; /* red button */
-  box-shadow: 0 0 10px rgba(239, 35, 60, 0.7);
+  background: linear-gradient(135deg, #910707, #f33d3d);
+  letter-spacing: 0.25rem;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .task-item button:last-of-type:hover {
-  background-color: #d90429; /* darker red on hover */
-  box-shadow: 0 0 15px rgba(239, 35, 60, 1);
+  transform: scale(1.05);
+}
+
+.save {
+  background: linear-gradient(135deg, #0b4d1d, #68ef78);
+  box-shadow: 0 0 10px rgba(72, 149, 239, 0.7);
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  color: #fff;
+  letter-spacing: 0.25rem;
+}
+
+.save:hover {
   transform: scale(1.05);
 }
 
@@ -167,28 +228,31 @@ button {
 
 input,
 textarea {
-  width: 90%;
+  width: 90%; /* Original width */
   padding: 1rem;
   border: none;
   border-radius: 5px;
-  background-color: #333; /* dark background for inputs */
-  color: #fff; /* white text */
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* darker shadow */
+  background-color: #333;
+  color: #fff;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
   transition: background-color 0.3s ease-in-out;
 }
 
-button {
-  background-color: #4cc9f0; /* light blue button */
-  color: #000; /* black text */
-  padding: 10px 20px;
-  border-radius: 5px;
+.add {
+  background-color: #49574f;
+  color: #000;
+  border-radius: 50%;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
 }
 
-button:hover {
-  background-color: #4895ef; /* darker blue on hover */
+.add:hover {
+  background-color: #4895ef;
   box-shadow: 0 0 10px rgba(72, 149, 239, 0.5);
   transform: scale(1.05);
 }

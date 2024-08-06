@@ -29,18 +29,23 @@ const TaskItem = ({ task, onUpdateTask, onMarkAsDone }) => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
-            <button onClick={handleUpdate}>Save</button>
+            <button className="save" onClick={handleUpdate}>
+              Save
+            </button>
             <button onClick={() => setIsEditing(false)}>Cancel</button>
           </div>
         ) : (
-          <div>
+          <div className="buttons-items">
             <h3>{task.title}</h3>
             <p>{isExpanded && task.description}</p>
             {isExpanded && <p>{new Date(task.timestamp).toLocaleString()}</p>}
-            <button onClick={() => setIsExpanded(!isExpanded)}>
+            <button
+              className="expand"
+              onClick={() => setIsExpanded(!isExpanded)}
+            >
               {isExpanded ? "Collapse" : "Expand"}
             </button>
-            <button onClick={() => onMarkAsDone(task.id)}>
+            <button className="done" onClick={() => onMarkAsDone(task.id)}>
               {task.completed ? "Undo" : "Complete"}
             </button>
             <button onClick={() => setIsEditing(true)}>Edit</button>
